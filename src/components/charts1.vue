@@ -44,29 +44,30 @@ export default {
         xAxis: {
           type: "value",
           axisLabel: {
-            color: '#0a6f91',
+            color: "#0a6f91",
             // fontSize: 10
           },
           splitLine: {
-                lineStyle: {
-                    color: '#012f4a'
-                }
-            }
+            show: false,
+            lineStyle: {
+              color: "#012f4a",
+            },
+          },
         },
         yAxis: {
           type: "category",
           data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
           axisTick: {
-                alignWithLabel: false,
-                show: false
-            },
+            alignWithLabel: false,
+            show: false,
+          },
           axisLabel: {
-            color: '#0a6f91',
+            color: "#0a6f91",
             // fontSize: 10
           },
           axisLine: {
-            show: false
-          }
+            show: false,
+          },
         },
         series: [
           {

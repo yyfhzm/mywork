@@ -2,24 +2,14 @@
   <dv-full-screen-container class="main">
     <div class="main-con">
       <div class="main-top">
-        <div class="main-top-left">
-          <dv-border-box-13
-            :reverse="true"
-            :color="['#0b97b8', '#0b97b8']"
-            class="main-top-left-top"
-          >
-            <span>今日推广消耗</span>
-            <dv-capsule-chart :config="config3" />
-          </dv-border-box-13>
-          <dv-border-box-13
-            :reverse="true"
-            :color="['#0b97b8', '#0b97b8']"
-            class="main-top-left-bottom"
-          >
-            <span>今日点击量</span>
-            <dv-capsule-chart :config="config4" />
-          </dv-border-box-13>
-        </div>
+        <dv-border-box-13
+          :reverse="true"
+          :color="['#0b97b8', '#0b97b8']"
+          class="main-top-left"
+        >
+          <span>今日热销</span>
+          <dv-scroll-ranking-board :config="config3" />
+        </dv-border-box-13>
         <div class="main-top-middle">
           <dv-border-box-11
             :color="['#0efcff', '#085d7f']"
@@ -61,34 +51,32 @@
           <dv-border-box-1 :color="['#0b97b8', '#0b97b8']">
             <WeekSales />
           </dv-border-box-1>
-          <dv-border-box-1 :color="['#0b97b8', '#0b97b8']"
-            >dv-border-box-1</dv-border-box-1
-          >
-          <dv-border-box-1 :color="['#0b97b8', '#0b97b8']"
-            >dv-border-box-1</dv-border-box-1
-          >
+          <dv-border-box-1 :color="['#0b97b8', '#0b97b8']">
+            <Weekzs />
+          </dv-border-box-1>
+          <dv-border-box-1 :color="['#0b97b8', '#0b97b8']">
+            <Daytg />
+          </dv-border-box-1>
         </div>
         <div class="main-bottom-bottom">
           <dv-border-box-10
             :color="['#0b97b8', '#0b97b8']"
             class="main-bottom-bottom-item"
-            >dv-border-box-10</dv-border-box-10
           >
+            <Fans />
+          </dv-border-box-10>
           <dv-border-box-10
             :color="['#0b97b8', '#0b97b8']"
             class="main-bottom-bottom-item"
-            >dv-border-box-10</dv-border-box-10
           >
+            <Shouhou />
+          </dv-border-box-10>
           <dv-border-box-10
             :color="['#0b97b8', '#0b97b8']"
             class="main-bottom-bottom-item"
-            >dv-border-box-10</dv-border-box-10
           >
-          <dv-border-box-10
-            :color="['#0b97b8', '#0b97b8']"
-            class="main-bottom-bottom-item"
-            >dv-border-box-10</dv-border-box-10
-          >
+            <dv-scroll-board :config="config4" />
+          </dv-border-box-10>
         </div>
       </div>
     </div>
@@ -98,37 +86,45 @@
 <script>
 import WeekSales from "@/components/charts1.vue";
 import Rose from "@/components/charts2.vue";
+import Daytg from "@/components/charts3.vue";
+import Weekzs from "@/components/charts4.vue";
+import Fans from "@/components/charts7.vue";
+import Shouhou from "@/components/charts6.vue";
 export default {
   name: "AllIndex",
   components: {
     WeekSales,
     Rose,
+    Daytg,
+    Weekzs,
+    Fans,
+    Shouhou,
   },
   data () {
     return {
       objList: [
         {
-          title: "抖音今日销量",
+          title: "抖音日曝光量",
           sales: 333,
         },
         {
-          title: "淘宝今日销量",
+          title: "淘宝日曝光量",
           sales: 333,
         },
         {
-          title: "拼多多今日销量",
+          title: "拼多多日曝光量",
           sales: 333,
         },
         {
-          title: "京东今日销量",
+          title: "京东日曝光量",
           sales: 333,
         },
         {
-          title: "腾讯今日销量",
+          title: "腾讯日曝光量",
           sales: 333,
         },
         {
-          title: "小红书今日销量",
+          title: "小红书日曝光量",
           sales: 333,
         },
       ],
@@ -146,118 +142,15 @@ export default {
       config2: {
         header: ["京东", "淘宝", "抖音", "腾讯", "拼多多", "小红书"],
         data: [
-          [
-            "家用电器",
-            "手机数码",
-            "电脑办公",
-            "家居家装",
-            "服装服饰",
-            "医药保健",
-          ],
-          [
-            "家用电器",
-            "手机数码",
-            "电脑办公",
-            "家居家装",
-            "服装服饰",
-            "医药保健",
-          ],
-          [
-            "家用电器",
-            "手机数码",
-            "电脑办公",
-            "家居家装",
-            "服装服饰",
-            "医药保健",
-          ],
-          [
-            "家用电器",
-            "手机数码",
-            "电脑办公",
-            "家居家装",
-            "服装服饰",
-            "医药保健",
-          ],
-          [
-            "家用电器",
-            "手机数码",
-            "电脑办公",
-            "家居家装",
-            "服装服饰",
-            "医药保健",
-          ],
-          [
-            "家用电器",
-            "手机数码",
-            "电脑办公",
-            "家居家装",
-            "服装服饰",
-            "医药保健",
-          ],
-          [
-            "家用电器",
-            "手机数码",
-            "电脑办公",
-            "家居家装",
-            "服装服饰",
-            "医药保健",
-          ],
-          [
-            "家用电器",
-            "手机数码",
-            "电脑办公",
-            "家居家装",
-            "服装服饰",
-            "医药保健",
-          ],
-          [
-            "家用电器",
-            "手机数码",
-            "电脑办公",
-            "家居家装",
-            "服装服饰",
-            "医药保健",
-          ],
-          [
-            "家用电器",
-            "手机数码",
-            "电脑办公",
-            "家居家装",
-            "服装服饰",
-            "医药保健",
-          ],
-          [
-            "家用电器",
-            "手机数码",
-            "电脑办公",
-            "家居家装",
-            "服装服饰",
-            "医药保健",
-          ],
-          [
-            "家用电器",
-            "手机数码",
-            "电脑办公",
-            "家居家装",
-            "服装服饰",
-            "医药保健",
-          ],
-          [
-            "家用电器",
-            "手机数码",
-            "电脑办公",
-            "家居家装",
-            "服装服饰",
-            "医药保健",
-          ],
-          [
-            "家用电器",
-            "手机数码",
-            "电脑办公",
-            "家居家装",
-            "服装服饰",
-            "医药保健",
-          ],
+          ["店铺名", "店铺名", "店铺名", "店铺名", "店铺名", "店铺名"],
+          ["店铺名", "店铺名", "店铺名", "店铺名", "店铺名", "店铺名"],
+          ["店铺名", "店铺名", "店铺名", "店铺名", "店铺名", "店铺名"],
+          ["店铺名", "店铺名", "店铺名", "店铺名", "店铺名", "店铺名"],
+          ["店铺名", "店铺名", "店铺名", "店铺名", "店铺名", "店铺名"],
+          ["店铺名", "店铺名", "店铺名", "店铺名", "店铺名", "店铺名"],
+          ["店铺名", "店铺名", "店铺名", "店铺名", "店铺名", "店铺名"],
+          ["店铺名", "店铺名", "店铺名", "店铺名", "店铺名", "店铺名"],
+          ["店铺名", "店铺名", "店铺名", "店铺名", "店铺名", "店铺名"],
         ],
         index: true,
         columnWidth: [150],
@@ -270,64 +163,81 @@ export default {
       config3: {
         data: [
           {
-            name: "京东",
-            value: 1167,
+            name: "周口",
+            value: 55123,
           },
           {
-            name: "淘宝",
-            value: 1023,
+            name: "南阳",
+            value: 12022,
           },
           {
-            name: "拼多多",
-            value: 898,
+            name: "西峡",
+            value: 78932,
           },
           {
-            name: "腾讯",
-            value: 775,
+            name: "驻马店",
+            value: 63411,
           },
           {
-            name: "小红书",
-            value: 66,
+            name: "新乡",
+            value: 44231,
           },
           {
-            name: "抖音",
-            value: 696,
+            name: "周口",
+            value: 55123,
+          },
+          {
+            name: "南阳",
+            value: 12022,
+          },
+          {
+            name: "西峡",
+            value: 78932,
+          },
+          {
+            name: "驻马店",
+            value: 63411,
+          },
+          {
+            name: "新乡",
+            value: 44231,
           },
         ],
-        colors: ["#e062ae", "#fb7293", "#e690d1", "#32c5e9", "#96bfff"],
-        unit: "元",
-        showValue: true,
+        // unit: "单位",
+        valueFormatter ({ value }) {
+          // console.warn(arguments);
+          const reverseNumber = (value + "").split("").reverse();
+          let valueStr = "";
+
+          while (reverseNumber.length) {
+            const seg = reverseNumber.splice(0, 3).join("");
+            valueStr += seg;
+            if (seg.length === 3) valueStr += ",";
+          }
+
+          return valueStr.split("").reverse().join("");
+        },
       },
       config4: {
+        header: ["姓名", "业绩", "订单量"],
         data: [
-          {
-            name: "京东",
-            value: 1167,
-          },
-          {
-            name: "淘宝",
-            value: 1023,
-          },
-          {
-            name: "拼多多",
-            value: 898,
-          },
-          {
-            name: "腾讯",
-            value: 775,
-          },
-          {
-            name: "小红书",
-            value: 66,
-          },
-          {
-            name: "抖音",
-            value: 696,
-          },
+          ["张三", "6666", "128"],
+          ["张三", "6666", "128"],
+          ["张三", "6666", "128"],
+          ["张三", "6666", "128"],
+          ["张三", "6666", "128"],
+          ["张三", "6666", "128"],
+          ["张三", "6666", "128"],
+          ["张三", "6666", "128"],
+          ["张三", "6666", "128"],
         ],
-        // colors: ["#e062ae", "#fb7293", "#e690d1", "#32c5e9", "#96bfff"],
-        unit: "元",
-        showValue: true,
+        index: true,
+        columnWidth: [100],
+        align: ["center"],
+        headerBGC: "",
+        oddRowBGC: "rgba(255,255,255,.05)",
+        evenRowBGC: "rgba(0,0,0,.3)",
+        indexHeader: "员工排行",
       },
     };
   },
@@ -362,44 +272,33 @@ export default {
       .main-top-left {
         width: 17%;
         height: 100%;
-        display: flex;
-        flex-direction: column;
-        .main-top-left-top {
-          position: relative;
-          width: 100%;
-          height: 50%;
-          span {
-            position: absolute;
-            top: 8%;
-            left: 35%;
-            color: #0bd7e3;
-            font-weight: bold;
-          }
-          .dv-capsule-chart {
-            position: absolute;
-            top: 14%;
-            left: 0;
-            width: 100%;
-            height: 90%;
-          }
+        position: relative;
+        span {
+          position: absolute;
+          top: 5%;
+          left: 35%;
+          font-size: 24px;
+          font-weight: bold;
+          color: #0bd7e3;
         }
-        .main-top-left-bottom {
-          position: relative;
-          width: 100%;
-          height: 50%;
-          span {
-            position: absolute;
-            top: 8%;
-            left: 38%;
-            color: #0bd7e3;
-            font-weight: bold;
-          }
-          .dv-capsule-chart {
-            position: absolute;
-            top: 14%;
-            left: 0;
-            width: 100%;
-            height: 90%;
+        /deep/.dv-scroll-ranking-board {
+          position: absolute;
+          top: 15%;
+          left: 4%;
+          width: 92%;
+          .row-item {
+            height: 50px !important;
+            .ranking-info {
+              .rank {
+                color: #0bd7e3;
+              }
+            }
+            .ranking-column {
+              border-bottom: 2px solid rgba(12, 240, 246, 0.5);
+              .inside-column {
+                background-color: rgba(9, 178, 198, 0.6);
+              }
+            }
           }
         }
       }
@@ -482,7 +381,7 @@ export default {
         height: 50%;
         margin-top: 1%;
         .main-bottom-bottom-item {
-          width: 24.5%;
+          width: 33%;
         }
       }
     }

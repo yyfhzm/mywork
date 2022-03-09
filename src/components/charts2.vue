@@ -23,9 +23,11 @@ export default {
         title: {
           text: "今日销量",
           left: '3%',
-          top: "22%",
+          top: "10%",
           textStyle: {
-            color: "#09c5d4",
+            color: "#0bd7e3",
+            fontSize: 22,
+            fontWeight: 'bolder'
           },
         },
         tooltip: {
@@ -36,11 +38,11 @@ export default {
           {
             name: "",
             type: "pie",
-            radius: [0, 60],
-            center: ["50%", "50%"],
-            // roseType: "area",
+            radius: [10, 60],
+            center: ["60%", "60%"],
+            roseType: "area",
             itemStyle: {
-              borderRadius: 8,
+              borderRadius: 5,
             },
             label: {
               show: true,
