@@ -45,9 +45,7 @@
         <div class="prompt">
           <p class="success">输入正确</p>
         </div>
-        <a href="#" class="animsition-link submit" @click="home()"
-          >登录</a
-        >
+        <a href="#" class="animsition-link submit" @click="home()">登录</a>
       </form>
     </div>
   </div>
@@ -87,13 +85,15 @@ export default {
       },
     };
   },
-
+  computed: {
+  },
   mounted () {},
 
   methods: {
     home () {
       this.$router.push("/home");
     },
+
   },
 };
 </script>

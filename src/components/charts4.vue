@@ -1,5 +1,5 @@
 <template>
-  <div class="order">
+  <div class="order" @mouseenter="clear()" @mouseleave="begin()">
     <div class="inner">
       <div class="filter">
         <a
@@ -47,7 +47,7 @@ export default {
       date: [
         {
           id: 0,
-          date: "365天",
+          date: "近365天",
           active: true,
           sales: "301,987",
           price: "9834",
@@ -55,7 +55,7 @@ export default {
         },
         {
           id: 1,
-          date: "90天",
+          date: "近90天",
           active: false,
           sales: "88,987",
           price: "2834",
@@ -63,7 +63,7 @@ export default {
         },
         {
           id: 2,
-          date: "30天",
+          date: "近30天",
           active: false,
           sales: "21,987",
           price: "834",
@@ -71,18 +71,25 @@ export default {
         },
         {
           id: 3,
-          date: "24小时",
+          date: "近24小时",
           active: false,
           sales: "8,987",
           price: "24",
           isShow: false,
         },
       ],
+      num: 0,
+      timer: null,
     };
   },
-  mounted () {},
+  mounted () {
+    this.begin();
+  },
+  watch: {},
+
   methods: {
     active (i) {
+      this.num = i;
       this.date.forEach((item, index) => {
         if (index !== i) {
           item.active = false;
@@ -92,6 +99,22 @@ export default {
           item.isShow = true;
         }
       });
+      this.num = i
+    },
+    clear () {
+      clearInterval(this.timer);
+    },
+    begin () {
+      this.timer = setInterval(() => {
+        this.num += 1;
+        if (this.num > 3) {
+          this.num = 0;
+        }
+        this.active(this.num);
+        console.log(this.num);
+      }, 1000);
+
+      // console.log(666);
     },
   },
 };
@@ -126,6 +149,7 @@ export default {
         // padding: 0 30px;
         color: #666;
         font-size: 24px;
+        font-weight: bold;
 
         &.active {
           color: #0bdbe5;

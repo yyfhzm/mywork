@@ -8,7 +8,12 @@ import '@/styles/index.less'
 import '@/styles/normolize.less'
 import dataV from '@jiaminghi/data-view'
 import * as echarts from 'echarts'
+import moment from 'moment'
+import 'moment/locale/zh-cn'
 
+Vue.filter('dateFormat', function (daraStr, pattern = 'YYYY-MM-DD HH:mm:ss') {
+  return moment(daraStr).format(pattern)
+})
 Vue.use(dataV)
 Vue.use(VueParticles)
 
